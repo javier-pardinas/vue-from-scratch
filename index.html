@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vuejs 2</title>
+    <!-- CDN for vue development version -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!--COMPONENTS-->
+    <!--message component-->
+    <script src="components/message.js"></script>
+    <!--computed properties component-->
+    <script src="components/computed-properties.js"></script>
+    <!--methods component-->
+    <script src="components/methods.js"></script>
+    <!--vmodel component-->
+    <script src="components/vmodel.js"></script>
+    <!--vmodel-checkboxes component-->
+    <script src="components/vmodel-checkboxes.js"></script>
+    <!--emit component-->
+    <script src="components/emit.js"></script>
+    <!--parent-data component-->
+    <script src="components/parent-data.js"></script>
+    <!--child-data component-->
+    <script src="components/child-data.js"></script>
+    <!--child-methods component-->
+    <script src="components/child-methods.js"></script>
+</head>
+<body>
+    <div id="app">
+        <message></message>
+        <computed-properties></computed-properties>
+        <methods></methods>
+        <vmodel></vmodel>
+        <vmodel-checkboxes></vmodel-checkboxes>
+        <emit @showcarbrand="showCarBrandFromEmitCmp"></emit>
+        <parent-data></parent-data>
+        <child-data ref="childData"></child-data>
+        <child-methods ref="childMethod"></child-methods>
+    </div>
+    <script>
+        new Vue({
+            el:'#app',
+            mounted() {
+                const cmpName = this.$refs.childData.cmpName;
+                console.log(cmpName);
+                setTimeout(() => {
+                    this.$refs.childMethod.showCmpName();
+                }, 3000)
+            },
+            data() {
+                return {
+                    appName: 'Starting with Vuejs 2'
+                }
+            },
+            methods: {
+                showCarBrandFromEmitCmp(carBrand) {
+                    alert(carBrand);
+                }
+            }
+        })
+    </script>
+</body>
+</html>
