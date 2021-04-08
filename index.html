@@ -36,6 +36,8 @@
     <script src="components/slots.js"></script>
     <!--watchers component-->
     <script src="components/watchers.js"></script>
+    <!--computed-properties-get-set component-->
+    <script src="components/computed-properties-get-set.js"></script>
 </head>
 <body>
     <div id="app">
@@ -51,7 +53,6 @@
         <login-form></login-form>
         <loops></loops>
         <conditionals></conditionals>
-        <watchers></watchers>
         <slots>
             <p>Content of main</p>
             <template slot="header">
@@ -60,8 +61,9 @@
             <template slot="footer">
                 <h3>Footer of Layout</h3>
             </template>
-            
         </slots>
+        <watchers></watchers>
+        <computed-properties-get-set></computed-properties-get-set>
     </div>
     <script>
         new Vue({
